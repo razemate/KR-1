@@ -5,7 +5,7 @@ import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card"
 import { Badge } from "./ui/badge"
-import { useLocalStorage } from "../hooks/use-local-storage"
+import useLocalStorage from "../hooks/use-local-storage"
 import { useToast } from "../hooks/use-toast"
 
 interface Integration {
