@@ -1,0 +1,11 @@
+{
+  "integrations": {
+    "woocommerce": {
+      "consumer_key": "your_key",
+      "consumer_secret": "your_secret"
+    },
+    "merchantguy": {
+      "api_key": "your_merchantguy_key"
+    }
+  }
+}
