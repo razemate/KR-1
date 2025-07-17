@@ -1,0 +1,218 @@
+# 💡 KR One - Full AI Build Prompt
+
+## 1️⃣ APP OVERVIEW
+
+Build a cross-platform desktop assistant named **KR One** using:
+- **Frontend**: React + Tauri (modern web-style interface)
+- **Backend**: Python (LLM routing, API integrations, RAG)
+- **Design reference**: Google AI Studio UI
+- The app is fully **read-only**: it cannot modify, create, update, or delete any external data
+
+---
+
+## 2️⃣ PRIMARY FUNCTIONS
+
+1. Chat interface (text input, voice input)
+2. File uploads for RAG (PDF, DOCX, CSV, TXT, MD, XLSX)
+3. Query data from integrated apps (WooCommerce, MerchantGuy, Google Analytics, Ads, etc.)
+4. Multi-LLM model switching
+5. Generate downloadable reports in:
+   - `.csv`, `.txt`, `.json`, `.pdf`, `.xlsx`, `.docx`
+6. Built-in prompt memory using ChromaDB
+7. Offline-first architecture (no cloud login)
+8. API settings panel with "Save" and "Validate" buttons
+9. Auto-reads `.env` file for default Woo + MerchantGuy
+10. Self-auditing using `KR-1_PROMPT.txt`
+
+---
+
+## 3️⃣ USER WORKFLOW
+
+1. User selects an LLM model from a dropdown
+2. User asks a natural language question or gives a command
+3. App enhances prompt with RAG (if enabled), performs API call, and responds
+4. User can export results as file (CSV, PDF, etc.)
+
+---
+
+## 4️⃣ SUPPORTED LLM PROVIDERS
+
+| Provider   | API Key URL                                         |
+|------------|-----------------------------------------------------|
+| OpenAI     | https://platform.openai.com/account/api-keys        |
+| Claude     | https://console.anthropic.com/settings/keys         |
+| Gemini     | https://aistudio.google.com/app/apikey              |
+| Groq       | https://console.groq.com/keys                       |
+| DeepSeek   | https://platform.deepseek.com/                      |
+| Qwen       | https://dash.qwen.aliyun.com/apiKey                 |
+
+> ✅ Each model must support **Save** and **Validate** buttons.
+
+---
+
+## 5️⃣ FILE EXPORT FORMATS
+
+Allow export of LLM responses and analytics into the following formats:
+
+- ✅ CSV (`.csv`)
+- ✅ Text (`.txt`)
+- ✅ JSON (`.json`)
+- ✅ PDF (`.pdf`)
+- ✅ Excel (`.xlsx`)
+- ✅ Word (`.docx`)
+
+---
+
+## 6️⃣ RAG + FILE MEMORY
+
+- Upload support for:
+  - `.pdf`, `.docx`, `.csv`, `.txt`, `.md`, `.xlsx`
+- All files embedded using **ChromaDB**
+- Prompts are auto-enhanced if **RAG** is enabled
+
+---
+
+## 7️⃣ SETTINGS PANEL STRUCTURE
+
+Organized by section:
+
+```
+Settings
+├── LLM Providers
+│ ├── OpenAI [Key + Save + Validate]
+│ ├── Claude [Key + Save + Validate]
+│ ├── Groq [Key + Save + Validate]
+│ ├── Gemini [Key + Save + Validate]
+│ ├── DeepSeek [Key + Save + Validate]
+│ └── Qwen [Key + Save + Validate]
+├── App Integrations
+│ ├── WooCommerce [Connected via .env]
+│ ├── MerchantGuy [Connected via .env]
+│ ├── Google Analytics [User input]
+│ ├── Google Ads [User input]
+│ ├── Facebook [User input]
+│ ├── TikTok [User input]
+│ ├── X (Twitter) [User input]
+│ └── YouTube [User input]
+```
+
+---
+
+## 8️⃣ DEFAULT .ENV FILE
+
+Create a single `.env` file at the root of your project:
+
+```env
+WOO_CONSUMER_KEY=ck_XXXXXXXXXXXX
+WOO_CONSUMER_SECRET=cs_XXXXXXXXXXXX
+MERCHANTGUY_API_KEY=PNBdEUKCDXV3B4r6gt45t3S223bcRT4t
+```
+
+Load with Python:
+
+```python
+from dotenv import load_dotenv
+load_dotenv()
+```
+
+---
+
+## 9️⃣ AI PROMPT FILE FOR SELF-CHECK
+
+📌 Save this file as:
+```
+C:\Users\Chris Saulon\Desktop\PROGRAMS by CHRIS\CS_APP-KR-1\KR-1_PROMPT.txt
+```
+
+Let the AI read this file and verify that all steps have been implemented.
+
+---
+
+## 🔟 READ-ONLY POLICY
+
+All integrated APIs are strictly read-only. The app must not use any of the following HTTP methods:
+
+❌ POST
+❌ PUT
+❌ PATCH
+❌ DELETE
+
+✅ Only GET operations are allowed.
+
+---
+
+## 1️⃣1️⃣ INCLUDED FILES
+
+- KR-1_PROMPT.txt → App build spec
+- .env → WooCommerce and MerchantGuy keys
+- KR-One_ProjectRules.md → Internal developer rules
+- KR-One_UserRules.md → End-user visible policies
+
+---
+
+## 1️⃣2️⃣ AUTO-FIX MODE (IDE: Claude / Trae)
+
+System Rule to add:
+
+```
+Auto-fix mode is always enabled. Claude must fix and finalize code without asking for approval.
+```
+
+This ensures the AI modifies the code directly without asking for permission.
+
+---
+
+## 1️⃣3️⃣ COMPLETION CHECKLIST (LLM Logic)
+
+All 13 implementation steps must be completed from the audit:
+
+✅ Refactor useLLM.ts
+✅ Central sendLLMRequest()
+✅ Support all 6 providers
+✅ Handle API errors
+✅ Inject RAG content
+✅ Properly parse LLM responses
+✅ Save & Validate API keys
+✅ File upload system
+✅ Export functionality
+✅ Settings panel
+✅ API integrations
+✅ ChromaDB setup
+✅ Tauri configuration
+
+Use these commands to confirm:
+
+"Did you implement Step 1?"
+"Did you implement Step 2?"
+…
+"Did you implement Step 13?"
+
+---
+
+## 1️⃣4️⃣ FINAL DELIVERY FORMAT
+
+📦 Final .zip must include:
+
+✅ React + Tauri frontend
+✅ Python backend
+✅ ChromaDB for RAG
+✅ Integrated .env config
+✅ KR-1_PROMPT.txt file
+✅ Self-contained .exe installer
+
+---
+
+## 📁 FINAL FOLDER STRUCTURE
+
+```
+KR-One/
+├── frontend/             # React + Tauri UI
+├── backend/              # Python logic (LLMs, RAG, APIs)
+│   ├── core/
+│   ├── integrations/
+├── storage/              # ChromaDB, uploads, logs
+├── config/               # config.json, encrypted
+├── .env                  # Woo + MerchantGuy keys
+├── KR-1_PROMPT.txt       # Embedded build prompt for self-audit
+└── tauri.conf.json
+```

@@ -1,189 +1,60 @@
-/* Global Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
-  color: #333;
-}
-
-.app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Header */
-.header {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 1rem 2rem;
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #4a5568;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Main Content */
-.main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 2rem;
-}
-
-/* Chat Window */
-.chat-window {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 2rem;
-  width: 100%;
-  max-width: 800px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-/* Messages */
-.user {
-  background: #4299e1;
-  color: white;
-  padding: 0.75rem 1rem;
-  border-radius: 15px 15px 5px 15px;
-  margin: 0.5rem 0;
-  margin-left: 2rem;
-  word-wrap: break-word;
-}
-
-.bot {
-  background: #e2e8f0;
-  color: #2d3748;
-  padding: 0.75rem 1rem;
-  border-radius: 15px 15px 15px 5px;
-  margin: 0.5rem 0;
-  margin-right: 2rem;
-  word-wrap: break-word;
-}
-
-/* Input Controls */
-select, input[type="text"], button, input[type="file"] {
-  margin: 0.5rem;
-  padding: 0.75rem;
-  border: 2px solid #e2e8f0;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-select:focus, input[type="text"]:focus {
-  outline: none;
-  border-color: #4299e1;
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
-}
-
-button {
-  background: #4299e1;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-button:hover {
-  background: #3182ce;
-  transform: translateY(-1px);
-}
-
-button:active {
-  transform: translateY(0);
-}
-
-input[type="text"] {
-  flex: 1;
-  min-width: 200px;
-}
-
-/* Settings */
-.settings {
-  position: fixed;
-  right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 1.5rem;
-  width: 300px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.settings h2 {
-  color: #2d3748;
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
-}
-
-.settings h3 {
-  color: #4a5568;
-  margin: 1rem 0 0.5rem 0;
-  font-size: 1rem;
-}
-
-.settings input {
-  width: 100%;
-  margin: 0.25rem 0;
-}
-
-.settings p {
-  color: #718096;
-  font-size: 0.875rem;
-  margin: 0.5rem 0;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .settings {
-    position: relative;
-    right: auto;
-    top: auto;
-    transform: none;
-    width: 100%;
-    margin-top: 2rem;
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
   }
-  
-  .main {
-    flex-direction: column;
-  }
-  
-  .header {
-    padding: 1rem;
-    font-size: 1.25rem;
-  }
-  
-  .chat-window {
-    margin-bottom: 1rem;
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
   }
 }
 
-/* Loading Animation */
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
+@layer base {
+  * {
+    @apply border;
   }
-  50% {
-    opacity: 0.5;
+  body {
+    @apply border;
+    @apply bg-background text-foreground;
   }
-}
-
-.loading {
-  animation: pulse 2s infinite;
 }
